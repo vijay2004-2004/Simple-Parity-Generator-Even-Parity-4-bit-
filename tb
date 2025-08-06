@@ -1,0 +1,15 @@
+module tb_parity_gen;
+    reg [3:0] data;
+    wire parity;
+
+    parity_gen uut(data, parity);
+
+    initial begin
+        $dumpfile("parity.vcd"); $dumpvars(0, tb_parity_gen);
+        data = 4'b0000; #10;
+        data = 4'b1010; #10;
+        data = 4'b1111; #10;
+        data = 4'b0011; #10;
+        $finish;
+    end
+endmodule
